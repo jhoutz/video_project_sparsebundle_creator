@@ -33,7 +33,7 @@ Here is a sample of the video project disk image directory structure.
       - source
       - proxy
 
-new_video_project.commmand
+separate_video_by_resolution.commmand
 ------------
 
 Separates footage into folders based on resolution size
