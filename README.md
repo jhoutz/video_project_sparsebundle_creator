@@ -1,25 +1,25 @@
-Video Project Sparsebundle Creator
+Video Scripts
 ==========
 
-Sparsebundles for Mac are a great way to organize and archive video projects. They are scalable and portable allowing for easy project collaboration.
+Just some handy scripts for video post-production for Mac users.
 
-The "new_video_project.commmand" file is a simple, double-clickable bash script for Mac that creates a sparsebundle disk image for video projects. The script also automatically creates video project organization directories based on user input.
-  
 Usage
 ------------
-  
-Pretty simple. Here are the steps:
+
+All .command files are double-clickable and will open a terminal and prompt user input options.
 
 1. Click "Download ZIP" in the upper right of this page
-2. Select destination to download
-3. Unzip and open unzipped folder
-4. Double-click "new_video_project.command"
+2. Unzip and open unzipped folder
+3. Double-click the .command file of your choice
+  
+new_video_project.commmand
+------------
 
-The Mac terminal will automatically launch and ask a series of questions. Video project directories will be created in the disc image based on the responses given.
+Creates a scalable .sparsebundle disk image with video project folders.
 
 Once the disk image has been created, it will mount and the .sparsebundle file will be moved to the Desktop.
 
-Here is a sample of the sparsebundle directory structure.
+Here is a sample of the video project disk image directory structure.
 
 - [sparsebundle_name]
   - [editor_app_name]
@@ -33,6 +33,14 @@ Here is a sample of the sparsebundle directory structure.
       - source
       - proxy
 
+new_video_project.commmand
+------------
+
+Separates footage into folders based on resolution size
+
+**Requires Media Info CLI**
+
+Install media info CLI by opening a terminal and typing `brew install media-info`
 
 Further Development
 -----
