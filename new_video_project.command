@@ -2,13 +2,13 @@
 
 # Creates a Mac sparsebundle with directories for video project organization
 
-read -p "Enter name of sparsebundle image: " IMAGE
-read -p "Enter the initial size of sparsebundle (ex. 200m, 20g): " SIZE
-read -p "Enter name of your editor (Premiere, FCPX, etc.): " NLE
-read -p "Enter motion graphics application (After Effects, Motion, etc): " MG
-read -p "Enter audio application (Audition, etc): " AUDIO
-read -p "Enter coloring application (Resolve, Speed Grade, etc): " COLOR
-read -p "Are you using proxy footage? (y or n): " PROXY
+read -p "Type the name of your project and press ENTER: " IMAGE
+read -p "Type the initial size of your disk image and press ENTER (ex. 200m, 20g): " SIZE
+read -p "Type the name of your editor and press ENTER (Premiere, FCPX, etc.): " NLE
+read -p "Type the name of your motion graphics application and press ENTER (After Effects, Motion, etc): " MG
+read -p "Type the name of your audio application and press ENTER (Audition, etc): " AUDIO
+read -p "Type the name of your coloring application and press ENTER (Resolve, Speed Grade, etc): " COLOR
+read -p "Are you using proxy footage? (y or n) Press ENTER: " PROXY
 
 # Lowercase sparsebundle disk image name and replace spaces with underscores
 # Default name = "video_project"
