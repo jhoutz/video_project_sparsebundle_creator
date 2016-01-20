@@ -23,12 +23,12 @@ Here is a sample of the video project disk image directory structure.
 
 - [sparsebundle_name]
   - [editor_app_name]
-    - renders
+    - render
   - [motion_graphics_app_name]
-    - renders
+    - render
   - [audio_app_name]
   - [coloring_app_name]
-    - renders
+    - render
   - raw
     - audio
       - dual_system
