@@ -74,7 +74,8 @@ cd ..
 mkdir photo
 
 # Navigate into video directory if proxy media is used 
-# Default is "n"
+# Default is "y"
+[ -n "$PROXY" ] || PROXY="y" #default NLE is premiere
 if [[ "$PROXY" == "y" ]];then
   cd video
   mkdir source
