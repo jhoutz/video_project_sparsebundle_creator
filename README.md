@@ -27,13 +27,13 @@ Here is a sample of the video project disk image directory structure.
   - [motion_graphics_app_name]
     - renders
   - [audio_app_name]
-    - dual_system
-    - foley
-    - music
   - [coloring_app_name]
     - renders
   - raw
     - audio
+      - dual_system
+      - foley
+      - music
     - photo
     - video
       - source

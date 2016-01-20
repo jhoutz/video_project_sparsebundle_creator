@@ -52,13 +52,6 @@ cd $MG
 mkdir renders
 cd ..
 
-# Create renders directory in audio applicaiton directory
-cd $AUDIO
-mkdir foley
-mkdir music
-mkdir dual_system
-cd ..
-
 # Create renders directory in color applicaiton directory
 cd $COLOR
 mkdir renders
@@ -73,6 +66,11 @@ cd raw
 # Create raw subdirectories
 mkdir video
 mkdir audio
+cd audio
+mkdir foley
+mkdir music
+mkdir dual_system
+cd ..
 mkdir photo
 
 # Navigate into video directory if proxy media is used 
