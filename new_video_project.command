@@ -12,7 +12,7 @@ read -p "Are you using proxy footage? (y or n) Press ENTER: " PROXY
 
 # Lowercase sparsebundle disk image name and replace spaces with underscores
 # Default name = "video_project"
-if [ -z "$SIZE" ]; then SIZE="video_project";fi
+[ -n "$IMAGE" ] || IMAGE="video_project"
 IMAGE=$(echo $IMAGE | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 
 # Create the sparsebundle disk image
@@ -29,11 +29,18 @@ CURR_LOC="$(pwd)"
 # Navigate to sparsebundle disk image
 cd /Volumes/$IMAGE
 
+# Set defaults
+[ -n "$NLE" ] || NLE="premiere" #default NLE is premiere
+[ -n "$MG" ] || MG="after_effects" #default motion graphics is after_effects
+[ -n "$AUDIO" ] || AUDIO="audition" #default audio application is audition
+[ -n "$COLOR" ] || COLOR="resolve" #default coloring application is resolve
+
+
 # Make directories based on user input
-if [[ -z "$NLE" ]];then mkdir premiere; else mkdir $(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
-if [[ -z "$MG" ]];then mkdir after_effects; else mkdir $(echo $MG | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
-if [[ -z "$COLOR" ]];then mkdir resolve; else mkdir $(echo $COLOR | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
-if [[ -z "$AUDIO" ]];then mkdir audition; else mkdir $(echo $AUDIO | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
+mkdir $(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+mkdir $(echo $MG | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+mkdir $(echo $AUDIO | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+mkdir $(echo $COLOR | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 
 # Make raw directory
 mkdir raw
