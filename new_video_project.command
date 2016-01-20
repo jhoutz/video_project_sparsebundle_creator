@@ -59,6 +59,7 @@ mkdir music
 mkdir dual_system
 cd ..
 
+# Create renders directory in color applicaiton directory
 cd $COLOR
 mkdir renders
 cd ..
