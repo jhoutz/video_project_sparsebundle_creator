@@ -44,17 +44,17 @@ mkdir $(echo $COLOR | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 
 # Create renders directory in NLE directory
 cd $NLE
-mkdir renders
+mkdir render
 cd ..
 
 # Create renders directory in motion graphics directory
 cd $MG
-mkdir renders
+mkdir render
 cd ..
 
 # Create renders directory in color applicaiton directory
 cd $COLOR
-mkdir renders
+mkdir render
 cd ..
 
 # Create raw directory
