@@ -4,7 +4,7 @@
 
 read -p "Type the name of your project and press ENTER: " IMAGE
 read -p "Type the initial size of your disk image and press ENTER (ex. 200m, 20g): " SIZE
-read -p "Type the name of your editor and press ENTER (Premiere, FCPX, etc.): " NLE
+read -p "Type the name of your video editor and press ENTER (Premiere, FCPX, etc.): " NLE
 read -p "Type the name of your motion graphics application and press ENTER (After Effects, Motion, etc): " MG
 read -p "Type the name of your audio application and press ENTER (Audition, etc): " AUDIO
 read -p "Type the name of your coloring application and press ENTER (Resolve, Speed Grade, etc): " COLOR
@@ -36,24 +36,46 @@ cd /Volumes/$IMAGE
 [ -n "$COLOR" ] || COLOR="resolve" #default coloring application is resolve
 
 
-# Make directories based on user input
+# Create directories based on user input
 mkdir $(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 mkdir $(echo $MG | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 mkdir $(echo $AUDIO | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 mkdir $(echo $COLOR | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 
-# Make raw directory
+# Create renders directory in NLE directory
+cd $NLE
+mkdir renders
+cd ..
+
+# Create renders directory in motion graphics directory
+cd $MG
+mkdir renders
+cd ..
+
+# Create renders directory in audio applicaiton directory
+cd $AUDIO
+mkdir foley
+mkdir music
+mkdir dual_system
+cd ..
+
+cd $COLOR
+mkdir renders
+cd ..
+
+# Create raw directory
 mkdir raw
 
 # Navigate into raw directory
 cd raw
 
-# Make raw subdirectories
+# Create raw subdirectories
 mkdir video
 mkdir audio
 mkdir photo
 
 # Navigate into video directory if proxy media is used 
+# Default is "n"
 if [[ "$PROXY" == "y" ]];then
   cd video
   mkdir source

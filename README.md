@@ -23,9 +23,15 @@ Here is a sample of the video project disk image directory structure.
 
 - [sparsebundle_name]
   - [editor_app_name]
+    - renders
   - [motion_graphics_app_name]
+    - renders
   - [audio_app_name]
+    - dual_system
+    - foley
+    - music
   - [coloring_app_name]
+    - renders
   - raw
     - audio
     - photo
