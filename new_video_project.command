@@ -2,6 +2,12 @@
 
 # Creates a Mac sparsebundle with directories for video project organization
 
+printf "\n\n"
+echo "Thanks for downloading this script! Hopefully it makes your life a little easier!"
+echo "For more information about me, visit http://justinhoutz.com"
+echo "Or email me at justin@justinhoutz.com"
+printf "\n\n"
+
 read -p "Type the name of your project and press ENTER: " IMAGE
 read -p "Type the initial size of your disk image and press ENTER (ex. 200m, 20g): " SIZE
 read -p "Type the name of your video editor and press ENTER (Premiere, FCPX, etc.): " NLE

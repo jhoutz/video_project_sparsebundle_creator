@@ -39,10 +39,16 @@ Here is a sample of the video project disk image directory structure.
       - source
       - proxy
 
-separate_video_by_resolution.commmand
+video_ingestion.commmand
 ------------
 
-Separates footage into folders based on resolution size
+Script to automate video footage ingestion process
+
+Options include:
+
+- Moving or copying footage
+- Renaming and numbering footage with date and camera name
+- Separating footage into folders based on video resolution
 
 **Requires Media Info CLI**
 
