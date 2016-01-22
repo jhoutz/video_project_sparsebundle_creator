@@ -50,9 +50,11 @@ Options include:
 - Renaming and numbering footage with date and camera name
 - Separating footage into folders based on video resolution
 
-**Requires Media Info CLI**
+**Requires Homebrew and MediaInfo CLI**
 
-Install media info CLI by opening a terminal and typing `brew install media-info`
+[Click here](http://coolestguidesontheplanet.com/installing-homebrew-os-x-yosemite-10-10-package-manager-unix-apps/) and follow the steps to install Homebrew
+
+Next, install MediaInfo by pasting `brew install media-info` in a terminal window and hitting ENTER
 
 Further Development
 -----
