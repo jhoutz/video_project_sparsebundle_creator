@@ -12,7 +12,7 @@ All .command files are double-clickable and will open a terminal and prompt user
 2. Unzip and open unzipped folder
 3. Double-click the .command file of your choice
   
-new_video_project.commmand
+new_video_project.command
 ------------
 
 Creates a scalable .sparsebundle disk image with video project folders.
@@ -39,7 +39,7 @@ Here is a sample of the video project disk image directory structure.
       - source
       - proxy
 
-video_ingestion.commmand
+video_ingestion.command
 ------------
 
 Script to automate video footage ingestion process
