@@ -10,7 +10,7 @@ printf "\n\n"
 
 read -p "Drag folder containing videos here and press ENTER: " FILES
 read -p "Drag destination directory here and press ENTER: " DEST_DIR
-read -p "Type 'c' to copy or 'm' to move files (defaut is 'c') and press ENTER: " MOVE_TYPE
+if [[ $FILES != *"Volumes"* ]]; then read -p "Type 'c' to copy or 'm' to move files (defaut is 'c') and press ENTER: " MOVE_TYPE; fi;
 read -p "Want to split files into folders by video resolution? (y or n) press ENTER: " RES_FOLDERS
 read -p "Want to rename the files with datestamp and camera name? (y or n) press ENTER: " RENAME
 if [ $RENAME == "y" ];then read -p "Type in date and press ENTER: " DATE; fi;

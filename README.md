@@ -56,6 +56,11 @@ Options include:
 
 Next, install MediaInfo by pasting `brew install media-info` in a terminal window and hitting ENTER
 
+Disclaimer
+-----
+
+These scripts are an aid to help filmmakers speed up their video project organization process. However, they are in development and therefore need to be used with caution. No guarantee against data loss or corruption is either expressed or implied.
+
 Further Development
 -----
 
