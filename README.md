@@ -12,7 +12,7 @@ All .command files are double-clickable and will open a terminal and prompt user
 2. Unzip and open unzipped folder
 3. Double-click the .command file of your choice
 
-Be sure to check out the [settings.yml](#settings.yml) file for general script settings
+Be sure to check out the [settings.yml](#Settings) file for general script settings
   
 new_video_project.command
 ------------
@@ -52,7 +52,7 @@ Options include:
 - Renaming and numbering footage with date and camera name
 - Separating footage into folders based on video resolution
 
-settings.yml
+Settings
 ------------
 
 The settings.yml file contains settings that will likely remain unchanged each time you use a script. I put them here instead of requiring the user to answer a ton of questions each time.
