@@ -12,7 +12,7 @@ All .command files are double-clickable and will open a terminal and prompt user
 2. Unzip and open unzipped folder
 3. Double-click the .command file of your choice
 
-Be sure to check out the [settings.yml](#Settings) file for general script settings
+Be sure to check out the [settings.yml](#settings) file for general script settings
   
 new_video_project.command
 ------------
