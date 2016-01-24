@@ -58,12 +58,6 @@ CURR_LOC="$(pwd)"
 # Navigate to sparsebundle disk image
 cd /Volumes/$IMAGE
 
-# Set defaults if no input given
-if [ -n "$NLE" ]; then NLE="premiere"; else NLE=$(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
-if [ -n "$MG" ]; then MG="after_effects"; else MG=$(echo $MG | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
-if [ -n "$AUDIO" ]; then AUDIO="audition"; else AUDIO=$(echo $AUDIO | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
-if [ -n "$COLOR" ]; then COLOR="resolve"; else COLOR=$(echo $COLOR | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
-
 # Create directories based on user input
 mkdir $(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 mkdir $(echo $MG | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
