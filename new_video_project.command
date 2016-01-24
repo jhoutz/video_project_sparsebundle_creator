@@ -2,6 +2,34 @@
 
 # Creates a Mac sparsebundle with directories for video project organization
 
+parse_yaml() {
+   local prefix=$2
+   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+   sed -ne "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
+        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
+   awk -F$fs '{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i > indent) {delete vname[i]}}
+      if (length($3) > 0) {
+         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
+         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+      }
+   }'
+}
+
+BASEDIR=$(dirname $0)
+cd $BASEDIR
+eval $(parse_yaml settings.yml "config_")
+
+# Reading settings values from settings.yml
+NLE=$(echo $config_settings_editor)
+MG=$(echo $config_settings_motion_graphics)
+AUDIO=$(echo $config_settings_audio)
+COLOR=$(echo $config_settings_coloring)
+PROXY=$(echo $config_settings_create_proxy_folders)
+
+# A li'l welcome and thank you. :)
 printf "\n\n"
 echo "Thanks for downloading this script! Hopefully it makes your life a little easier!"
 echo "For more information about me, visit http://justinhoutz.com"
@@ -10,11 +38,6 @@ printf "\n\n"
 
 read -p "Type the name of your project and press ENTER: " IMAGE
 read -p "Type the initial size of your disk image and press ENTER (ex. 200m, 20g): " SIZE
-read -p "Type the name of your video editor and press ENTER (Premiere, FCPX, etc.): " NLE
-read -p "Type the name of your motion graphics application and press ENTER (After Effects, Motion, etc): " MG
-read -p "Type the name of your audio application and press ENTER (Audition, etc): " AUDIO
-read -p "Type the name of your coloring application and press ENTER (Resolve, Speed Grade, etc): " COLOR
-read -p "Are you using proxy footage? (y or n) Press ENTER: " PROXY
 
 # Lowercase sparsebundle disk image name and replace spaces with underscores
 # Default name = "video_project"
@@ -35,12 +58,11 @@ CURR_LOC="$(pwd)"
 # Navigate to sparsebundle disk image
 cd /Volumes/$IMAGE
 
-# Set defaults
-[ -n "$NLE" ] || NLE="premiere" #default NLE is premiere
-[ -n "$MG" ] || MG="after_effects" #default motion graphics is after_effects
-[ -n "$AUDIO" ] || AUDIO="audition" #default audio application is audition
-[ -n "$COLOR" ] || COLOR="resolve" #default coloring application is resolve
-
+# Set defaults if no input given
+if [ -n "$NLE" ]; then NLE="premiere"; else NLE=$(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
+if [ -n "$MG" ]; then MG="after_effects"; else MG=$(echo $MG | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
+if [ -n "$AUDIO" ]; then AUDIO="audition"; else AUDIO=$(echo $AUDIO | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
+if [ -n "$COLOR" ]; then COLOR="resolve"; else COLOR=$(echo $COLOR | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
 
 # Create directories based on user input
 mkdir $(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
@@ -79,14 +101,12 @@ mkdir dual_system
 cd ..
 mkdir photo
 
-# Navigate into video directory if proxy media is used 
-# Default is "y"
-[ -n "$PROXY" ] || PROXY="y" #default NLE is premiere
-if [[ "$PROXY" == "y" ]];then
+# Create source and proxy folders
+if [[ "$PROXY" == true ]];then
   cd video
   mkdir source
   mkdir proxy
 fi
 
 # Move sparsebundle disk image to the desktop
-mv $CURR_LOC/$IMAGE.sparsebundle $CURR_LOC/Desktop
+mv $CURR_LOC/$IMAGE.sparsebundle ~/Desktop

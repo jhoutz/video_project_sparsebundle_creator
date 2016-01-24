@@ -11,6 +11,8 @@ All .command files are double-clickable and will open a terminal and prompt user
 1. Click "Download ZIP" in the upper right of this page
 2. Unzip and open unzipped folder
 3. Double-click the .command file of your choice
+
+Be sure to check out the [settings.yml](#settings.yml) file for general script settings
   
 new_video_project.command
 ------------
@@ -50,7 +52,33 @@ Options include:
 - Renaming and numbering footage with date and camera name
 - Separating footage into folders based on video resolution
 
-**Requires Homebrew and MediaInfo CLI**
+(#settings.yml)
+------------
+
+The settings.yml file contains settings that will likely remain unchanged each time you use a script. I put them here instead of requiring the user to answer a ton of questions each time.
+
+Settings are fully commented and you can change any of the values to the right of the ":".
+
+For instance, you can change the name of your video editor by changing `editor: Premiere` to `editor: FCPX`...
+
+```yaml
+# What is the name of your video editor?
+# Options: Premiere, FCPX, Sony Vegas, etc.
+editor: Premiere
+```
+
+...becomes...
+
+```yaml
+# What is the name of your video editor?
+# Options: Premiere, FCPX, Sony Vegas, etc.
+editor: FCPX
+```
+
+System Requirements
+-----
+
+**Scripts Require Homebrew and MediaInfo CLI**
 
 [Click here](http://coolestguidesontheplanet.com/installing-homebrew-os-x-yosemite-10-10-package-manager-unix-apps/) and follow the steps to install Homebrew
 
