@@ -52,7 +52,7 @@ Options include:
 - Renaming and numbering footage with date and camera name
 - Separating footage into folders based on video resolution
 
-(#settings.yml)
+settings.yml
 ------------
 
 The settings.yml file contains settings that will likely remain unchanged each time you use a script. I put them here instead of requiring the user to answer a ton of questions each time.
