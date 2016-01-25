@@ -23,11 +23,11 @@ cd $BASEDIR
 eval $(parse_yaml settings.yml "config_")
 
 # Reading settings values from settings.yml
-NLE=$(echo $config_settings_editor)
-MG=$(echo $config_settings_motion_graphics)
-AUDIO=$(echo $config_settings_audio)
-COLOR=$(echo $config_settings_coloring)
-PROXY=$(echo $config_settings_create_proxy_folders)
+NLE=$(echo $config_settings_editor | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+MG=$(echo $config_settings_motion_graphics | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+AUDIO=$(echo $config_settings_audio | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+COLOR=$(echo $config_settings_coloring | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+PROXY=$(echo $config_settings_create_proxy_folders | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 
 # A li'l welcome and thank you. :)
 printf "\n\n"
@@ -59,10 +59,10 @@ CURR_LOC="$(pwd)"
 cd /Volumes/$IMAGE
 
 # Create directories based on user input
-mkdir $(echo $NLE | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
-mkdir $(echo $MG | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
-mkdir $(echo $AUDIO | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
-mkdir $(echo $COLOR | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+mkdir $NLE
+mkdir $MG
+mkdir $AUDIO
+mkdir $COLOR
 
 # Create renders directory in NLE directory
 cd $NLE
