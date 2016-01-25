@@ -98,8 +98,8 @@ mkdir photo
 # Create source and proxy folders
 if [[ "$PROXY" == true ]];then
   cd video
-  mkdir source
-  mkdir proxy
+  mkdir _source
+  mkdir _proxy
 fi
 
 # Move sparsebundle disk image to the desktop
