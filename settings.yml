@@ -31,9 +31,9 @@ settings:
   # ====================================
 
   # Do you want to copy the file or move the file? Moving means deleting from original folder
-  # Options: copy, move
-  # WARNING: DO NOT use the "move" method when transferring files from an SD card.
-  move_type: move
+  # Options: cp (copy), mv (move)
+  # WARNING: DO NOT use the "mv" method when transferring files from an SD card.
+  move_type: cp
 
 
   # Do you want to move video files into a folder by the name of your camera?

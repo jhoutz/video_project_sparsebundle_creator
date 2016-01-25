@@ -24,9 +24,9 @@ eval $(parse_yaml settings.yml "config_")
 
 # Reading settings values from settings.yml
 MOVE_TYPE=$(echo $config_settings_move_type)
-if [$MOVE_TYPE == "copy"]; then MOVE_TYPE="cp"; else MOVE_TYPE="mv"; fi
 # If source volume is /Volumes/* (a.k.a. an SD card) force MOVE_TYPE to "cp"
-if [ $FILES == *"Volumes"* ]; then MOVE_TYPE="cp";fi
+if [[ $FILES == *"Volumes"* ]]; then MOVE_TYPE="cp";fi
+
 CAMERA_DIR=$(echo $config_settings_move_footage_to_camera_folder)
 RES_DIR=$(echo $config_settings_split_footage_by_resolution)
 RENAME=$(echo $config_settings_split_footage_by_resolution)
