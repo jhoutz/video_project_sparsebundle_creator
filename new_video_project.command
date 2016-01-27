@@ -23,10 +23,10 @@ cd $BASEDIR
 eval $(parse_yaml settings.yml "config_")
 
 # Reading settings values from settings.yml
-NLE=$(echo $config_settings_editor | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
-MG=$(echo $config_settings_motion_graphics | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
-AUDIO=$(echo $config_settings_audio | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
-COLOR=$(echo $config_settings_coloring | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+if [ -z "$NLE" ];then NLE=$(echo $config_settings_editor | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
+if [ -z "$MG" ];then MG=$(echo $config_settings_motion_graphics | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
+if [ -z "$AUDIO" ];then AUDIO=$(echo $config_settings_audio | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
+if [ -z "$COLOR" ];then COLOR=$(echo $config_settings_coloring | tr '[:upper:]' '[:lower:]' | tr ' ' '_');fi
 PROXY=$(echo $config_settings_create_proxy_folders | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
 
 # A li'l welcome and thank you. :)
@@ -59,25 +59,35 @@ CURR_LOC="$(pwd)"
 cd /Volumes/$IMAGE
 
 # Create directories based on user input
-mkdir $NLE
-mkdir $MG
-mkdir $AUDIO
-mkdir $COLOR
+if [ ! -z "$NLE" ]; then
+  mkdir $NLE
+  cd $NLE
+  # Create renders directory in NLE directory
+  mkdir render
+  cd ..
+fi
 
-# Create renders directory in NLE directory
-cd $NLE
-mkdir render
-cd ..
+if [ ! -z "$MG" ]; then
+  mkdir $MG
+  cd $MG
+  # Create renders directory in MG directory
+  mkdir render
+  cd ..
+fi
 
-# Create renders directory in motion graphics directory
-cd $MG
-mkdir render
-cd ..
+if [ ! -z "$COLOR" ]; then
+  mkdir $COLOR
+  cd $COLOR
+  # Create renders directory in COLOR directory
+  mkdir render
+  cd ..
+fi
 
-# Create renders directory in color applicaiton directory
-cd $COLOR
-mkdir render
-cd ..
+if [ ! -z "$AUDIO" ]; then
+  mkdir $AUDIO
+fi
+
+
 
 # Create raw directory
 mkdir raw

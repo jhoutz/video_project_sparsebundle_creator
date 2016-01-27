@@ -7,23 +7,28 @@ settings:
   # ======================================
 
   # What is the name of your video editor?
-  # Options: Premiere, FCPX, Sony Vegas, etc.
+  # Required: false
+  # Value Options: Premiere, FCPX, Sony Vegas, etc.
   editor: Premiere
 
   # What is the name of your motion graphics application?
-  # Options: After Effects, Motion, etc.
+  # Required: false
+  # Value Options: After Effects, Motion, etc.
   motion_graphics: After Effects
 
   # What is the name of your audio application?
-  # Options: Audition, etc.
+  # Required: false
+  # Value Options: Audition, etc.
   audio: Audition
 
   # What is the name of your coloring application?
-  # Options: Resolve, Speed Grade, etc.
+  # Required: false
+  # Value Options: Resolve, Speed Grade, etc.
   coloring: Resolve
 
   # Create folders for source and proxy footage?
-  # Options: true, false
+  # Required: true
+  # Value Options: true, false
   create_proxy_folders: true
 
   # ====================================
@@ -31,26 +36,31 @@ settings:
   # ====================================
 
   # Do you want to copy the file or move the file? Moving means deleting from original folder
-  # Options: cp (copy), mv (move)
+  # Required: true
+  # Value Options: cp (copy), mv (move)
   # WARNING: DO NOT use the "mv" method when transferring files from an SD card.
   move_type: cp
 
 
   # Do you want to move video files into a folder by the name of your camera?
-  # Options: true, false
+  # Required: true
+  # Value Options: true, false
   move_footage_to_camera_folder: true
 
 
   # Do you want to further split videos into folders based on video resolution?
-  # Options: true, false
+  # Required: true
+  # Value Options: true, false
   split_footage_by_resolution: true
 
 
   # Do you want to rename files with date stamp and camera name? Example renaming: 12_31_16_MarkIII_0.MOV
-  # Options: true, false
+  # Required: true
+  # Value Options: true, false
   rename_files_by_datestamp_and_camera: true
 
 
   # Do you want to see a preview of the renamed files before proceeding?
-  # Options: true, false
+  # Required: true
+  # Value Options: true, false
   show_rename_preview: true
