@@ -2,24 +2,11 @@
 
 # Creates a Mac sparsebundle with directories for video project organization
 
-parse_yaml() {
-   local prefix=$2
-   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
-   sed -ne "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
-        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
-   awk -F$fs '{
-      indent = length($1)/2;
-      vname[indent] = $2;
-      for (i in vname) {if (i > indent) {delete vname[i]}}
-      if (length($3) > 0) {
-         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
-         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
-      }
-   }'
-}
-
 BASEDIR=$(dirname $0)
 cd $BASEDIR
+
+. functions.sh
+
 eval $(parse_yaml settings.yml "config_")
 
 # Reading settings values from settings.yml
@@ -58,52 +45,15 @@ CURR_LOC="$(pwd)"
 # Navigate to sparsebundle disk image
 cd /Volumes/$IMAGE
 
-# Create directories based on user input
-if [ ! -z "$NLE" ]; then
-  mkdir $NLE
-  cd $NLE
-  # Create renders directory in NLE directory
-  mkdir render
-  cd ..
-fi
+# Create directories
+if [ ! -z "$NLE" ]; then create_program_directories $NLE true;fi
+if [ ! -z "$MG" ]; then create_program_directories $MG true;fi
+if [ ! -z "$COLOR" ]; then create_program_directories $COLOR true;fi
+if [ ! -z "$AUDIO" ]; then create_program_directories $AUDIO false;fi
 
-if [ ! -z "$MG" ]; then
-  mkdir $MG
-  cd $MG
-  # Create renders directory in MG directory
-  mkdir render
-  cd ..
-fi
+cd /Volumes/$IMAGE
 
-if [ ! -z "$COLOR" ]; then
-  mkdir $COLOR
-  cd $COLOR
-  # Create renders directory in COLOR directory
-  mkdir render
-  cd ..
-fi
-
-if [ ! -z "$AUDIO" ]; then
-  mkdir $AUDIO
-fi
-
-
-
-# Create raw directory
-mkdir raw
-
-# Navigate into raw directory
-cd raw
-
-# Create raw subdirectories
-mkdir video
-mkdir audio
-cd audio
-mkdir foley
-mkdir music
-mkdir dual_system
-cd ..
-mkdir photo
+create_raw_directories
 
 # Create source and proxy folders
 if [[ "$PROXY" == true ]];then

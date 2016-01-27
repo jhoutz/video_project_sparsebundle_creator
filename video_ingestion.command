@@ -2,24 +2,11 @@
 
 # Automated script for video ingestion and organization
 
-parse_yaml() {
-   local prefix=$2
-   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
-   sed -ne "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
-        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
-   awk -F$fs '{
-      indent = length($1)/2;
-      vname[indent] = $2;
-      for (i in vname) {if (i > indent) {delete vname[i]}}
-      if (length($3) > 0) {
-         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
-         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
-      }
-   }'
-}
-
 BASEDIR=$(dirname $0)
 cd $BASEDIR
+
+. functions.sh
+
 eval $(parse_yaml settings.yml "config_")
 
 # Reading settings values from settings.yml
@@ -39,7 +26,7 @@ echo "For more information about me, visit http://justinhoutz.com"
 echo "Or email me at justin@justinhoutz.com"
 printf "\n\n"
 
-read -p "Drag folder(s) containing videos here and press ENTER: " FILES
+read -p "Drag folder containing videos here and press ENTER: " FILES
 read -p "Drag destination directory here and press ENTER: " DEST_DIR
 read -p "Type in the type camera and ('GH4', 'MarkIII', etc) and press ENTER: " CAMERA
 if [ $RENAME == true ];then read -p "Type in datestamp and press ENTER: " DATE; fi;
