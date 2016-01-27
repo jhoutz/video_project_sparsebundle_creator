@@ -25,8 +25,7 @@ create_program_directories() {
 }
 
 create_raw_directories() {
-
-   pwd
+   
    # Create raw directory
    mkdir raw
 
