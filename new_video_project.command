@@ -58,6 +58,7 @@ create_raw_directories
 # Create source and proxy folders
 if [[ "$PROXY" == true ]];then
   cd video
+  mkdir stock
   mkdir _source
   mkdir _proxy
 fi
