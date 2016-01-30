@@ -19,9 +19,25 @@ create_program_directories() {
    cd $1
    # Create renders directory if render == true
    if [ $2 == true ];then
-      mkdir render
+      mkdir renders
       cd ..
    fi
+}
+
+create_full_production_directories() {
+  mkdir pre_production
+  cd pre_production
+  mkdir scripts
+  mkdir schedules
+  mkdir locations
+  mkdir talent
+  mkdir expenses
+  cd ..
+  mkdir production
+  cd production
+  mkdir shot_lists
+  cd ..
+  mkdir post_production
 }
 
 create_raw_directories() {
