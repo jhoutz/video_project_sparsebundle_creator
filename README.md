@@ -21,7 +21,7 @@ Creates a scalable .sparsebundle disk image with video project folders.
 
 Once the disk image has been created, it will mount and the .sparsebundle file will be moved to the Desktop.
 
-Here is a sample of a full-production* video project disk image directory structure.
+Here is a sample of a full-production`*` video project disk image directory structure.
 
 - video_project.sparsebundle`*`
   - pre_production
@@ -33,12 +33,12 @@ Here is a sample of a full-production* video project disk image directory struct
   - production
     - shot_lists
   - post_production
-    - premiere*
+    - premiere`*`
       - renders
-    - after_effects*
+    - after_effects`*`
       - renders
-    - audition*
-    - davinci_resolve*
+    - audition`*`
+    - davinci_resolve`*`
       - renders
     - raw
       - audio
@@ -50,7 +50,7 @@ Here is a sample of a full-production* video project disk image directory struct
         - source
         - proxy
       
-`*` You can select full-production or just post-production project in [settings.yml](#settings)
+`*` You can select full-production or just post-production project in [settings.yml](#settings)  
 `**` Name is editable
 
 video_ingestion.command
