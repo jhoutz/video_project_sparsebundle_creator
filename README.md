@@ -23,7 +23,7 @@ Once the disk image has been created, it will mount and the .sparsebundle file w
 
 Here is a sample of a full-production`*` video project disk image directory structure.
 
-- video_project.sparsebundle`*`
+- video_project.sparsebundle`**`
   - pre_production
     - scripts
     - schedules
@@ -33,12 +33,12 @@ Here is a sample of a full-production`*` video project disk image directory stru
   - production
     - shot_lists
   - post_production
-    - premiere`*`
+    - premiere`**`
       - renders
-    - after_effects`*`
+    - after_effects`**`
       - renders
-    - audition`*`
-    - davinci_resolve`*`
+    - audition`**`
+    - davinci_resolve`**`
       - renders
     - raw
       - audio
