@@ -23,7 +23,7 @@ Once the disk image has been created, it will mount and the .sparsebundle file w
 
 Here is a sample of a full-production* video project disk image directory structure.
 
-- video_project.sparsebundle*
+- video_project.sparsebundle`*`
   - pre_production
     - scripts
     - schedules
@@ -50,8 +50,8 @@ Here is a sample of a full-production* video project disk image directory struct
         - source
         - proxy
       
-* You can select full-production or just post-production project in [settings.yml](#settings)
-** Name is editable
+`*` You can select full-production or just post-production project in [settings.yml](#settings)
+`**` Name is editable
 
 video_ingestion.command
 ------------
