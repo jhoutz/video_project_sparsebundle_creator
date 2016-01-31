@@ -28,13 +28,6 @@ printf "\n\n"
 read -p "Type the name of your project and press ENTER: " IMAGE
 read -p "Type the initial size of your disk image and press ENTER (ex. 200m, 20g): " SIZE
 
-if [[ $SIZE == *"m"* ]] || [[ $SIZE == *"g"* ]]; then
-  continue
-else
-  echo "Incorrect size given"
-  exit
-fi
-
 # Lowercase sparsebundle disk image name and replace spaces with underscores
 # Default name = "video_project"
 [ -n "$IMAGE" ] || IMAGE="video_project"

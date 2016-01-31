@@ -34,7 +34,7 @@ settings:
   # Do you want to create a full-production project with pre_production, production and post_production folders?
   # Required: true
   # Value Options: true, false
-  full_production: true
+  full_production: false
 
   # Create folders for source and proxy footage?
   # Required: true
