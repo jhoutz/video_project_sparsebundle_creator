@@ -50,7 +50,7 @@ cd /Volumes/$IMAGE
 
 if [ ${FULL_PRODUCTION} == "true" ]; then
   create_full_production_directories
-  cd post_production
+  cd 3_post_production
 fi
 
 # Create directories
@@ -61,7 +61,7 @@ if [ ! -z "$AUDIO" ]; then create_program_directories $AUDIO false;fi
 
 cd /Volumes/$IMAGE
 
-if [ ${FULL_PRODUCTION} == "true" ]; then cd post_production ;fi
+if [ ${FULL_PRODUCTION} == "true" ]; then cd 3_post_production ;fi
 
 create_raw_directories
 

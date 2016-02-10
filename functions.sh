@@ -25,19 +25,20 @@ create_program_directories() {
 }
 
 create_full_production_directories() {
-  mkdir pre_production
-  cd pre_production
+  mkdir 1_pre_production
+  cd 1_pre_production
   mkdir scripts
   mkdir schedules
   mkdir locations
   mkdir talent
   mkdir expenses
+  mkdir concepts
   cd ..
-  mkdir production
-  cd production
+  mkdir 2_production
+  cd 2_production
   mkdir shot_lists
   cd ..
-  mkdir post_production
+  mkdir 3_post_production
 }
 
 create_raw_directories() {
